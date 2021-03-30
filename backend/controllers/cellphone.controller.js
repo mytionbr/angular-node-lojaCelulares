@@ -3,7 +3,6 @@ const Cellphone = require('../models/cellphone.model')
 const router = express.Router()
 
 const createCellphone = async (req,res) =>{
-    
     let cellphone = new Cellphone()
     cellphone.name = req.body.name
     cellphone.brand = req.body.brand
@@ -15,8 +14,18 @@ const createCellphone = async (req,res) =>{
 
     try{
         await cellphone.save()
+        send()
     }catch(e){
         console.log(e)
     }
 }
 
+const getCellphone = async (req,res) =>{
+    Cellphone.find({}).then((results =>{
+        let cellphones = results.filter(async cellphone => cellphone)
+        res.send(cellphones)
+    })
+    )
+}
+
+const 
