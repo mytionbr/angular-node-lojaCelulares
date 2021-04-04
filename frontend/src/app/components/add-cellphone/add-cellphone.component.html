@@ -1,1 +1,78 @@
-<p>add-cellphone works!</p>
+<div style="width: 400px; margin:auto">
+    <div class="submit-form">
+        <div *ngIf='!submitted'>
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="name"
+                    required
+                    [(ngModel)]="cellphone.name"
+                    name="name"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="brand">Brand:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="brand"
+                    required
+                    [(ngModel)]="cellphone.brand"
+                    name="brand"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="price"
+                    required
+                    [(ngModel)]="cellphone.price"
+                    name="price"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="imageLink">Link imagem:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="imageLink"
+                    required
+                    [(ngModel)]="cellphone.imageLink"
+                    name="imageLink"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="colors">Opções de cor:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="colors"
+                    required
+                    [(ngModel)]="cellphone.colors"
+                    name="colors"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="description"
+                    required
+                    [(ngModel)]="cellphone.description"
+                    name="description"
+                    />
+            </div>
+        <button (click)="saveCellphone()" class="btn btn-success">Cadastrar</button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4>Cadastro com sucesso!!</h4>
+            <button class="btn btn-success" (click)="newCellphone()">Adicionar</button>
+        </div>
+    </div>
+</div>
