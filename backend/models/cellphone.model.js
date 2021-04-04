@@ -28,6 +28,9 @@ const cellphoneSchema = new mongoose.Schema({
     memoryStorage:{
         type:Number,
         required:true,
+    },
+    sold:{
+        type:Boolean
     }
 })
 
