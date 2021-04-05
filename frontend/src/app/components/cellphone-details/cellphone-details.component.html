@@ -1,1 +1,114 @@
-<p>cellphone-details works!</p>
+<div>
+    <div *ngIf="currentCellphone._id" class="edit-form">
+        <h4>Celular</h4>
+        <form>
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="name"
+                    required
+                    [(ngModel)]="currentCellphone.name"
+                    name="name"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="brand">Marca:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="brand"
+                    required
+                    [(ngModel)]="currentCellphone.brand"
+                    name="brand"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="price">Preço:</label>
+                <input 
+                    type="number" 
+                    class="form-control"
+                    id="price"
+                    required
+                    [(ngModel)]="currentCellphone.price"
+                    name="price"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="imageLink">Link imagem:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="imageLink"
+                    required
+                    [(ngModel)]="currentCellphone.imageLink"
+                    name="imageLink"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="colors">Opções de cor:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="colors"
+                    required
+                    [(ngModel)]="currentCellphone.colors"
+                    name="colors"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="colors">Armazenamento:</label>
+                <input 
+                    type="number" 
+                    class="form-control"
+                    id="colors"
+                    required
+                    [(ngModel)]="currentCellphone.memoryStorage"
+                    name="colors"
+                    />
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    id="description"
+                    required
+                    [(ngModel)]="currentCellphone.description"
+                    name="description"
+                    />
+            </div>
+            <div class="form-group">
+                <label><strong>Status:</strong></label>
+                {{currentCellphone.sold ? "Vendido" : "No estoque"}}
+            </div>
+        </form>
+
+        <button
+            class="badge badge-primary mr-2"
+            *ngIf="!currentCellphone.sold"
+            (click)="updateSold(true)"
+        >
+        Vender
+        </button>
+        <button
+            class="badge badge-danger mr-2"
+            (click)="deleteCellphone()"
+        >
+        Deletar
+        </button>
+        <button
+            class="badge badge-success mb-2"
+            (click)="updateCellphone()"
+        >
+        Atualizar
+        </button>
+        <p>{{message}}</p>
+    </div>
+
+    <div *ngIf="!currentCellphone._id">
+        <br>
+        <p>Não foi possível acessar esse celular</p>
+    </div>
+</div>

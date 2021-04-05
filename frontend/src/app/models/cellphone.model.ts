@@ -1,5 +1,5 @@
 export class Cellphone {
-    id?:any
+    _id?:any
     name?: string
     brand?: string
     price?: number

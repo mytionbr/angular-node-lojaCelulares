@@ -37,7 +37,7 @@
   </div>
   <div class="col-md-6">
     <div *ngIf="currentCellphone">
-      <h4>Cellphone</h4>
+      <h4>Celular</h4>
 
       <div *ngIf="currentCellphone.imageLink !== ''" class="image">
         <img src="{{ currentCellphone.imageLink }}" alt=""> 
@@ -67,7 +67,7 @@
       </div>
       <a
         class="badge badge-warning"
-        routerLink="/cellphones/{{ currentCellphone.id }}"
+        routerLink="/cellphones/{{ currentCellphone._id }}"
       >
         Editar
       </a>
