@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cellphone } from 'src/app/models/cellphone.model';
 import { CellphoneService } from 'src/app/services/cellphone.service';
 
 
@@ -9,20 +10,10 @@ import { CellphoneService } from 'src/app/services/cellphone.service';
 })
 export class CellphoneListComponent implements OnInit {
 
-  cellphone = {
-    id:"",
-    name: "",
-    brand: "",
-    price: 0,
-    imageLink: "",
-    colors: [],
-    description: "",
-    memoryStorage: 0,
-    sold: false
-  }
+ 
 
-  cellphones: any
-  currentCellphone = this.cellphone
+  cellphones?: Cellphone[]
+  currentCellphone?: Cellphone
   currentIndex = -1
   name = ''
 
@@ -47,11 +38,11 @@ export class CellphoneListComponent implements OnInit {
 
   refleshList(): void{
     this.retrieveCellphones()
-    this.currentCellphone = this.cellphone
+    this.currentCellphone = undefined
     this.currentIndex = -1
   }
 
-  setActiveCellphone(cellphone:any,index:any):void{
+  setActiveCellphone(cellphone:Cellphone,index:number):void{
     this.currentCellphone = cellphone 
     this.currentIndex = index
   }

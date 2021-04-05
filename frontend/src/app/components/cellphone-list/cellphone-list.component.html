@@ -36,10 +36,26 @@
     </button>
   </div>
   <div class="col-md-6">
-    
+    <div *ngIf="currentCellphone">
       <h4>Cellphone</h4>
+
+      <div *ngIf="currentCellphone.imageLink !== ''" class="image">
+        <img src="{{ currentCellphone.imageLink }}" alt=""> 
+      </div>
       <div>
         <label><strong>Nome:</strong></label> {{ currentCellphone.name }}
+      </div>
+      <div>
+        <label><strong>Marca:</strong></label>
+        {{ currentCellphone.brand }}
+      </div>
+      <div>
+        <label><strong>Preço:</strong></label>
+        {{ currentCellphone.price }} R$
+      </div>
+      <div>
+        <label><strong>Mermoria:</strong></label>
+        {{ currentCellphone.memoryStorage }} G
       </div>
       <div>
         <label><strong>Descrição:</strong></label>
@@ -55,9 +71,9 @@
       >
         Editar
       </a>
-   
+    </div>
 
-    <div >
+    <div *ngIf="!currentCellphone">
       <br />
       <p>Por favor, click em um celular</p>
     </div>

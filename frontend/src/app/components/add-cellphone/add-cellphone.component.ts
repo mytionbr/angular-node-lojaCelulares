@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cellphone } from 'src/app/models/cellphone.model';
 import { CellphoneService } from 'src/app/services/cellphone.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CellphoneService } from 'src/app/services/cellphone.service';
 })
 export class AddCellphoneComponent implements OnInit {
 
-  cellphone = {
+  cellphone: Cellphone = {
     name: "",
     brand: "",
     price: 0,

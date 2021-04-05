@@ -1,0 +1,10 @@
+.list {
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+  }
+
+.image img{
+    width: 200px;
+    height: 200px;
+}
