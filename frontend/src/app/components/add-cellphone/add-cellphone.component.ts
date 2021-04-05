@@ -26,7 +26,7 @@ export class AddCellphoneComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveTutorial():void{
+  saveCellPhone():void{
     const data = {
       name: this.cellphone.name,
       brand: this.cellphone.brand,

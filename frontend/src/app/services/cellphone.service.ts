@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { Cellphone } from '../models/cellphone.model';
 
-const baseUrl = 'http://localhost:8080/api/cellphones'
+const baseUrl = 'http://localhost:3000/cellphones'
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,12 @@ export class CellphoneService {
 
   constructor(private http: HttpClient) {  }
 
-  getAll(): Observable<any>{
-    return this.http.get(baseUrl)
+  getAll(): Observable<Cellphone[]>{
+    console.log('carregou')
+    return this.http.get<Cellphone[]>(baseUrl)
   }
 
-  get(id:any): Observable<any> {
+  get(id:any): Observable<Cellphone> {
     return this.http.get(`${baseUrl}/${id}`)
   }
 
@@ -31,12 +33,12 @@ export class CellphoneService {
     return this.http.delete(`${baseUrl}/${id}`)
   }
 
-  deleteAll(){
+  deleteAll(): Observable<any>{
     return this.http.delete(baseUrl)
   }
 
-  findByName(name:any): Observable<any>{
-    return this.http.get(`${baseUrl}?name=${name}`)
+  findByName(name:any): Observable<Cellphone[]>{
+    return this.http.get<Cellphone[]>(`${baseUrl}?name=${name}`)
   }
   findAllSold(){
     return this.http.get(`${baseUrl}/sold`)

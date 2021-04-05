@@ -1,1 +1,65 @@
-<p>cellphone-list works!</p>
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar por nome"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchName()"
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h4> Celulares</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let cellphone of cellphones; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveCellphone(cellphone, i)"
+      >
+        {{ cellphone.name }}
+      </li>
+    </ul>
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllCellphones()">
+      Remover todos
+    </button>
+  </div>
+  <div class="col-md-6">
+    
+      <h4>Cellphone</h4>
+      <div>
+        <label><strong>Nome:</strong></label> {{ currentCellphone.name }}
+      </div>
+      <div>
+        <label><strong>Descrição:</strong></label>
+        {{ currentCellphone.description }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentCellphone.sold ? "Vendido" : "No estoque" }}
+      </div>
+      <a
+        class="badge badge-warning"
+        routerLink="/cellphones/{{ currentCellphone.id }}"
+      >
+        Editar
+      </a>
+   
+
+    <div >
+      <br />
+      <p>Por favor, click em um celular</p>
+    </div>
+  </div>
+</div>
