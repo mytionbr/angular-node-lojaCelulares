@@ -22,11 +22,9 @@ mongoose.connect(
         process.exit()
     })
 
-const corsOptions = {
-    origin:"http://localhost:8081"
-}
 
-app.use(cors(corsOptions))
+
+app.use(cors())
 
 app.use(express.json());
 
